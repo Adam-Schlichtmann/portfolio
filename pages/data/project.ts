@@ -7,7 +7,6 @@ export type Project = {
   badges: string[];
 };
 
-console.log("test error");
 export const projects: Project[] = [
   {
     name: "Bingo App",
