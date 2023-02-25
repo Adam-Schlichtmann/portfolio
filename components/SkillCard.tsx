@@ -8,7 +8,7 @@ type Props = {
 
 const SkillCard = ({ skill }: Props) => {
   return (
-    <Card shadow='xl' radius='md' withBorder my={"lg"}>
+    <Card shadow='xl' radius='md' withBorder my='xs'>
       <Title order={4} mb='sm'>
         {skill.name}
       </Title>

@@ -8,7 +8,7 @@ type Props = {
 
 const SchoolCard = ({ school }: Props) => {
   return (
-    <Card shadow='xl' radius='md' withBorder>
+    <Card shadow='xl' radius='md' withBorder my='xs'>
       <Flex direction='column' gap='sm'>
         <Flex direction='row' align='center' justify='space-between'>
           <Title order={3}>{school.degree}</Title>
