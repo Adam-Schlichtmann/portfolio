@@ -1,13 +1,4 @@
-import {
-  Card,
-  Text,
-  Group,
-  Flex,
-  Badge,
-  List,
-  ThemeIcon,
-  Grid,
-} from "@mantine/core";
+import { Card, Text, Flex, Badge, List, ThemeIcon, Title } from "@mantine/core";
 import { IconCheck } from "@tabler/icons";
 
 type Props = {
@@ -31,13 +22,12 @@ const WorkExperience = ({
     <Card shadow='xl' radius='lg' withBorder my={"lg"}>
       <Flex direction='column' gap='xl'>
         <Flex direction='column' gap='xs'>
-          <Flex direction='row' justify='space-between'>
-            <Text weight={700}>{title}</Text>
-            <Text weight={500}>{`${start} - ${end}`}</Text>
+          <Flex direction='row' justify='space-between' align='center'>
+            <Title order={3}>{title}</Title>
+            <Title order={4}>{`${start} - ${end}`}</Title>
           </Flex>
-          <Text weight={600}>{company}</Text>
+          <Title order={4}>{company}</Title>
         </Flex>
-
         <List
           spacing='xs'
           size='sm'
@@ -52,13 +42,15 @@ const WorkExperience = ({
             <List.Item key={item}>{item}</List.Item>
           ))}
         </List>
-        <Flex gap='md'>
+        <Flex direction='column' gap='md'>
           <Text weight={500}>Skills</Text>
-          {badges.map((badge) => (
-            <Badge variant='filled' key={badge}>
-              {badge}
-            </Badge>
-          ))}
+          <Flex gap='md' wrap='wrap'>
+            {badges.map((badge) => (
+              <Badge variant='filled' key={badge}>
+                {badge}
+              </Badge>
+            ))}
+          </Flex>
         </Flex>
       </Flex>
     </Card>

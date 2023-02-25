@@ -7,15 +7,16 @@ import {
   IconBrandReddit,
   IconWorldWww,
 } from "@tabler/icons";
+import { ForwardedRef, forwardRef } from "react";
 import { About } from "../data/about";
 
 type Props = {
   me: About;
 };
 
-const About = ({ me }: Props) => {
+const About = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (
-    <Card shadow='xl' radius='lg' withBorder my={"lg"}>
+    <Card shadow='xl' radius='lg' withBorder my={"lg"} ref={ref}>
       <Flex direction='column' gap='md'>
         <Flex direction='column' gap='xs'>
           <Flex direction='row' justify='space-between'>
@@ -98,4 +99,4 @@ const About = ({ me }: Props) => {
   );
 };
 
-export default About;
+export default forwardRef(About);
