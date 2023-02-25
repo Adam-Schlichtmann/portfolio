@@ -13,7 +13,7 @@ type Props = {
 
 const ProjectCard = ({ project }: Props) => {
   return (
-    <Card shadow='xl' radius='md' withBorder my={16}>
+    <Card shadow='xl' radius='md' withBorder my='xs'>
       <Flex direction='column' gap='md'>
         <Flex direction='row' align='center' justify='space-between'>
           <Title order={3}>{project.name}</Title>
@@ -40,7 +40,7 @@ const ProjectCard = ({ project }: Props) => {
           </Flex>
         </Flex>
         <Text>{project.description}</Text>
-        <Flex gap='xs'>
+        <Flex gap='md' wrap='wrap'>
           {project.badges.map((badge) => (
             <Badge variant='filled' key={badge}>
               {badge}

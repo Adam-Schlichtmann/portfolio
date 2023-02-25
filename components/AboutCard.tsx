@@ -18,7 +18,7 @@ type Props = {
 
 const AboutCard = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (
-    <Card shadow='xl' radius='lg' withBorder my={"lg"} ref={ref}>
+    <Card shadow='xl' radius='lg' withBorder my='xs' ref={ref}>
       <Flex direction='column' gap='md'>
         <Flex direction='column' gap='xs'>
           <Flex direction='row' justify='space-between'>
@@ -88,7 +88,7 @@ const AboutCard = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
         </Flex>
         <Flex direction='column' gap='sm'>
           <Title order={4}>Hobbies</Title>
-          <Flex direction='row' gap='sm'>
+          <Flex direction='row' gap='md' wrap='wrap'>
             {me.hobbies.map((hobby) => (
               <Badge variant='filled' key={hobby}>
                 {hobby}

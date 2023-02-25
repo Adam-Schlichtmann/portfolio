@@ -9,14 +9,21 @@ export const skills: Skill[] = [
     confidence: 90,
   },
   {
+    name: "React Native",
+    confidence: 85,
+  },
+  {
+    name: "React",
+    confidence: 70,
+  },
+  {
     name: "Python",
-    confidence: 75,
+    confidence: 55,
   },
   {
     name: "Golang",
     confidence: 40,
   },
-
   {
     name: "Rust",
     confidence: 40,

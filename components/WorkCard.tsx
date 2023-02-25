@@ -1,5 +1,5 @@
-import { Card, Text, Flex, Badge, List, ThemeIcon, Title } from "@mantine/core";
-import { IconCheck } from "@tabler/icons";
+import { Card, Text, Flex, Badge, List, Title } from "@mantine/core";
+import { IconMinus } from "@tabler/icons";
 
 import { Work } from "../data";
 
@@ -9,7 +9,7 @@ type Props = {
 
 const WorkCard = ({ work }: Props) => {
   return (
-    <Card shadow='xl' radius='lg' withBorder my={"lg"}>
+    <Card shadow='xl' radius='lg' withBorder my='xs'>
       <Flex direction='column' gap='xl'>
         <Flex direction='column' gap='xs'>
           <Flex direction='row' justify='space-between' align='center'>
@@ -18,16 +18,7 @@ const WorkCard = ({ work }: Props) => {
           </Flex>
           <Title order={4}>{work.company}</Title>
         </Flex>
-        <List
-          spacing='xs'
-          size='sm'
-          center
-          icon={
-            <ThemeIcon size='sm' variant='outline' radius='xl'>
-              <IconCheck size='20' />
-            </ThemeIcon>
-          }
-        >
+        <List spacing='xs' size='sm' center icon={<IconMinus size='20' />}>
           {work.description.map((item) => (
             <List.Item key={item}>{item}</List.Item>
           ))}
