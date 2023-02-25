@@ -1,3 +1,5 @@
+import { ForwardedRef, forwardRef } from "react";
+
 import { Card, Text, Flex, Badge, Title, ActionIcon } from "@mantine/core";
 import {
   IconBrandFacebook,
@@ -7,14 +9,14 @@ import {
   IconBrandReddit,
   IconWorldWww,
 } from "@tabler/icons";
-import { ForwardedRef, forwardRef } from "react";
-import { About } from "../data/about";
+
+import { About } from "../data";
 
 type Props = {
   me: About;
 };
 
-const About = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
+const AboutCard = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   return (
     <Card shadow='xl' radius='lg' withBorder my={"lg"} ref={ref}>
       <Flex direction='column' gap='md'>
@@ -99,4 +101,4 @@ const About = ({ me }: Props, ref: ForwardedRef<HTMLDivElement>) => {
   );
 };
 
-export default forwardRef(About);
+export default forwardRef(AboutCard);

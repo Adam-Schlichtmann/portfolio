@@ -1,9 +1,4 @@
-import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import LanguageCard from "./components/LanguageCard";
-import WorkExperience from "./components/WorkExperience";
-
-import { work } from "./data/work";
+import { useRef, useState } from "react";
 
 import {
   MantineProvider,
@@ -16,13 +11,7 @@ import {
   Burger,
   MediaQuery,
 } from "@mantine/core";
-import { language } from "./data/language";
-import About from "./components/About";
-import { about } from "./data/about";
-import { school } from "./data/school";
-import School from "./components/School";
-import { projects } from "./data/project";
-import Project from "./components/Project";
+import { useMediaQuery } from "@mantine/hooks";
 import {
   IconBrandGithub,
   IconBriefcase,
@@ -30,8 +19,17 @@ import {
   IconTools,
   IconUser,
 } from "@tabler/icons";
-import { useRef, useState } from "react";
-import { useMediaQuery } from "@mantine/hooks";
+import Head from "next/head";
+
+import styles from "../styles/Home.module.css";
+import {
+  AboutCard,
+  ProjectCard,
+  SchoolCard,
+  SkillCard,
+  WorkCard,
+} from "./components";
+import { about, skills, projects, schooling, work } from "./data";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -158,43 +156,31 @@ export default function Home() {
             }
           >
             <Flex direction='column' gap='xl'>
-              <About me={about} ref={aboutRef} />
+              <AboutCard me={about} ref={aboutRef} />
               <Title order={2} align='center' mt='xl' mb='md' ref={workRef}>
                 Work Experience
               </Title>
-              {work.map((job) => (
-                <WorkExperience
-                  key={`${job.title}-${job.company}`}
-                  title={job.title}
-                  company={job.company}
-                  description={job.description}
-                  badges={job.badges}
-                  start={job.startDate}
-                  end={job.endDate}
-                />
+              {work.map((work) => (
+                <WorkCard key={`${work.title}-${work.company}`} work={work} />
               ))}
               <Title order={2} align='center' mt='xl' mb='md' ref={schoolRef}>
                 School
               </Title>
-              {school.map((cool) => (
-                <School key={cool.degree} school={cool} />
+              {schooling.map((school) => (
+                <SchoolCard key={school.degree} school={school} />
               ))}
 
               <Title order={2} align='center' mt='xl' mb='md' ref={projectsRef}>
                 Projects
               </Title>
               {projects.map((project) => (
-                <Project key={project.name} project={project} />
+                <ProjectCard key={project.name} project={project} />
               ))}
               <Title order={2} align='center' mt='xl' mb='md' ref={skillRef}>
                 Skills
               </Title>
-              {language.map((lang) => (
-                <LanguageCard
-                  key={lang.name}
-                  language={lang.name}
-                  percent={lang.confidence}
-                />
+              {skills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} />
               ))}
             </Flex>
           </AppShell>

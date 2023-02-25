@@ -1,9 +1,9 @@
-type Language = {
+export type Skill = {
   name: string;
   confidence: number;
 };
 
-export const language: Language[] = [
+export const skills: Skill[] = [
   {
     name: "JavaScript/TypeScript",
     confidence: 90,

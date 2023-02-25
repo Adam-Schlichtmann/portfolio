@@ -1,3 +1,54 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next/core-web-vitals", "prettier"],
+  "rules": {
+    "no-console": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          ["object", "type"],
+          "index"
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react*",
+          "@wedgekit/*",
+          "@wedgekit-native/*",
+          "react-native-get-random-values"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react*",
+            "group": "builtin",
+            "position": "before"
+          },
+          {
+            "pattern": "@wedgekit/*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@wedgekit-native/*",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "Wedgekit/**",
+            "group": "internal",
+            "position": "before"
+          }
+        ],
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "no-unused-vars": "error"
+  }
 }

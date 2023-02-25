@@ -1,24 +1,17 @@
-import {
-  Card,
-  Text,
-  Flex,
-  RingProgress,
-  Title,
-  ActionIcon,
-  Badge,
-} from "@mantine/core";
+import { Card, Text, Flex, Title, ActionIcon, Badge } from "@mantine/core";
 import {
   IconBrandGithub,
   IconBrandGooglePlay,
   IconBrandAppstore,
 } from "@tabler/icons";
-import { Project } from "../data/project";
+
+import { Project } from "../data";
 
 type Props = {
   project: Project;
 };
 
-const Project = ({ project }: Props) => {
+const ProjectCard = ({ project }: Props) => {
   return (
     <Card shadow='xl' radius='md' withBorder my={16}>
       <Flex direction='column' gap='md'>
@@ -59,4 +52,4 @@ const Project = ({ project }: Props) => {
   );
 };
 
-export default Project;
+export default ProjectCard;

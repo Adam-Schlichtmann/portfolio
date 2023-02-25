@@ -5,7 +5,7 @@ export type School = {
   degree: string;
 };
 
-export const school: School[] = [
+export const schooling: School[] = [
   {
     school: "University of Nebraska Lincoln",
     start: "August 2016",

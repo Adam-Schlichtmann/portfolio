@@ -1,11 +1,12 @@
 import { Card, Text, Flex, Title } from "@mantine/core";
-import { School as SchoolType } from "../data/school";
+
+import { School } from "../data/school";
 
 type Props = {
-  school: SchoolType;
+  school: School;
 };
 
-const School = ({ school }: Props) => {
+const SchoolCard = ({ school }: Props) => {
   return (
     <Card shadow='xl' radius='md' withBorder>
       <Flex direction='column' gap='sm'>
@@ -19,4 +20,4 @@ const School = ({ school }: Props) => {
   );
 };
 
-export default School;
+export default SchoolCard;
