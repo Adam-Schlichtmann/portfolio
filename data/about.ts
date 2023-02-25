@@ -19,15 +19,15 @@ export const about: About = {
   name: "Adam Schlichtmann",
   email: "",
   description:
-    "My name is adam schlichtmann alsdkfjalk jalksdfjl ;asdjflk;asf jlasdfklsdjfk sjdflkjsd lkfsdklf sfjek slfajlekfj islkej lelcjlsjelej selse ksels e sleksl eksel ske lk k",
-  hobbies: ["Curling", "Corgi", "Cooking", "Lake", "Golf"],
+    "I am currently working as a mobile developer using React Native with Expo. My passion is problem solving and creating user friendly front end applications. I am a strong believer in test driven development and clean coding practices.",
+  hobbies: ["Curling", "Cooking", "Corgi", "Golf", "Lake"],
   location: "Fargo, ND",
   socials: {
-    facebook: "https://www.facebook.com/",
+    facebook: "",
     github: "https://github.com/Adam-Schlichtmann",
-    twitter: "a",
-    instagram: "a",
-    reddit: "a",
-    myWebsite: "www.adam.com",
+    twitter: "",
+    instagram: "",
+    reddit: "",
+    myWebsite: "https://adam-schlichtmann.github.io/portfolio/",
   },
 };
