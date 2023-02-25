@@ -21,15 +21,15 @@ import {
 } from "@tabler/icons";
 import Head from "next/head";
 
-import styles from "../styles/Home.module.css";
 import {
   AboutCard,
   ProjectCard,
   SchoolCard,
   SkillCard,
   WorkCard,
-} from "./components";
-import { about, skills, projects, schooling, work } from "./data";
+} from "../components";
+import { about, skills, projects, schooling, work } from "../data";
+import styles from "../styles/Home.module.css";
 
 export default function Home() {
   const aboutRef = useRef<HTMLDivElement>(null);
