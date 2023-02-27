@@ -7,11 +7,9 @@ import {
   Flex,
   Navbar,
   AppShell,
-  NavLink,
   Burger,
   MediaQuery,
 } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
 import {
   IconBrandGithub,
   IconBriefcase,
@@ -23,6 +21,7 @@ import Head from "next/head";
 
 import {
   AboutCard,
+  CustomNavLink,
   ProjectCard,
   SchoolCard,
   SkillCard,
@@ -40,10 +39,14 @@ export default function Home() {
 
   const [opened, setOpened] = useState(false);
 
-  const isSmallScreen = useMediaQuery("(max-width: 900px)");
-
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        primaryColor: "cyan",
+      }}
+    >
       <div className={styles.container}>
         <Head>
           <title>Adam Schlichtmann</title>
@@ -52,6 +55,11 @@ export default function Home() {
         </Head>
         <main className={styles.main}>
           <AppShell
+            styles={(theme) => ({
+              body: {
+                backgroundColor: theme.colors.gray[2],
+              },
+            })}
             padding='md'
             navbar={
               <Navbar
@@ -59,87 +67,51 @@ export default function Home() {
                   md: 300,
                 }}
                 hidden={!opened}
+                sx={(theme) => ({
+                  backgroundColor: theme.colors.gray[4],
+                })}
               >
-                <Navbar.Section>
-                  <NavLink
-                    label='About Me'
-                    icon={<IconUser />}
-                    onClick={() => {
-                      aboutRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                      });
-                      if (isSmallScreen) {
-                        setOpened(false);
-                      }
-                    }}
-                  />
-                </Navbar.Section>
-                <Navbar.Section>
-                  <NavLink
-                    label='Work'
-                    icon={<IconBriefcase />}
-                    onClick={() => {
-                      workRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                      });
-                      if (isSmallScreen) {
-                        setOpened(false);
-                      }
-                    }}
-                  />
-                </Navbar.Section>
-                <Navbar.Section>
-                  <NavLink
-                    label='School'
-                    icon={<IconSchool />}
-                    onClick={() => {
-                      schoolRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                      });
-                      if (isSmallScreen) {
-                        setOpened(false);
-                      }
-                    }}
-                  />
-                </Navbar.Section>
-                <Navbar.Section>
-                  <NavLink
-                    label='Projects'
-                    icon={<IconBrandGithub />}
-                    onClick={() => {
-                      projectsRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                      });
-                      if (isSmallScreen) {
-                        setOpened(false);
-                      }
-                    }}
-                  />
-                </Navbar.Section>
-                <Navbar.Section>
-                  <NavLink
-                    label='Skill'
-                    icon={<IconTools />}
-                    onClick={() => {
-                      skillRef.current?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center",
-                      });
-                      if (isSmallScreen) {
-                        setOpened(false);
-                      }
-                    }}
-                  />
-                </Navbar.Section>
+                <CustomNavLink
+                  label='About Me'
+                  icon={<IconUser />}
+                  ref={aboutRef}
+                  setOpened={setOpened}
+                />
+                <CustomNavLink
+                  label='Work'
+                  icon={<IconBriefcase />}
+                  ref={workRef}
+                  setOpened={setOpened}
+                />
+                <CustomNavLink
+                  label='School'
+                  icon={<IconSchool />}
+                  ref={schoolRef}
+                  setOpened={setOpened}
+                />
+                <CustomNavLink
+                  label='Projects'
+                  icon={<IconBrandGithub />}
+                  ref={projectsRef}
+                  setOpened={setOpened}
+                />
+                <CustomNavLink
+                  label='Skill'
+                  icon={<IconTools />}
+                  ref={skillRef}
+                  setOpened={setOpened}
+                />
               </Navbar>
             }
             header={
-              <Header height={{ base: 100 }} p='md'>
-                <Flex direction={"row"} align='center'>
+              <Header
+                height={{ base: 100 }}
+                p='md'
+                sx={(theme) => ({
+                  backgroundColor: theme.colors.teal[3],
+                })}
+              >
+                <Flex direction='row' align='center'>
                   <MediaQuery largerThan='md' styles={{ display: "none" }}>
                     <Burger
                       opened={opened}
@@ -169,7 +141,6 @@ export default function Home() {
               {schooling.map((school) => (
                 <SchoolCard key={school.degree} school={school} />
               ))}
-
               <Title order={2} align='center' mt='xl' mb='md' ref={projectsRef}>
                 Projects
               </Title>
