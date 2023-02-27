@@ -1,4 +1,5 @@
 import { Card, Text, Flex, Title } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 import { School } from "../data/school";
 
@@ -7,10 +8,16 @@ type Props = {
 };
 
 const SchoolCard = ({ school }: Props) => {
+  const isHamburgerShowing = useMediaQuery("(max-width: 992px)");
+
   return (
     <Card shadow='xl' radius='md' withBorder my='xs'>
       <Flex direction='column' gap='sm'>
-        <Flex direction='row' align='center' justify='space-between'>
+        <Flex
+          direction={isHamburgerShowing ? "column" : "row"}
+          justify='space-between'
+          align={isHamburgerShowing ? undefined : "center"}
+        >
           <Title order={3}>{school.degree}</Title>
           <Text weight={500}>{`${school.start} - ${school.end}`}</Text>
         </Flex>
