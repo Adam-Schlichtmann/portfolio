@@ -1,4 +1,5 @@
 import { Card, Text, Flex, Badge, List, Title } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 import { IconMinus } from "@tabler/icons";
 
 import { Work } from "../data";
@@ -8,11 +9,17 @@ type Props = {
 };
 
 const WorkCard = ({ work }: Props) => {
+  const isHamburgerShowing = useMediaQuery("(max-width: 992px)");
+
   return (
     <Card shadow='xl' radius='lg' withBorder my='xs'>
       <Flex direction='column' gap='xl'>
         <Flex direction='column' gap='xs'>
-          <Flex direction='row' justify='space-between' align='center'>
+          <Flex
+            direction={isHamburgerShowing ? "column" : "row"}
+            justify='space-between'
+            align={isHamburgerShowing ? undefined : "center"}
+          >
             <Title order={3}>{work.title}</Title>
             <Title order={4}>{`${work.startDate} - ${work.endDate}`}</Title>
           </Flex>
