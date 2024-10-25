@@ -1,8 +1,12 @@
-<script>
-	/** @type {import('./types').WorkHistory} */
-	export let workHistory;
+<script lang="ts">
 	import * as Card from '$lib/components/ui/card';
 	import ChevronRight from 'lucide-svelte/icons/chevron-right';
+	import type { WorkHistory } from './types';
+
+	type Props = {
+		workHistory: WorkHistory;
+	};
+	let { workHistory }: Props = $props();
 </script>
 
 <Card.Root class="my-2">

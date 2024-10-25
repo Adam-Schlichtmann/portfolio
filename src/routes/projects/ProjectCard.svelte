@@ -1,22 +1,33 @@
-<script>
-	/** @type {import('./types').Project} */
-	export let project;
+<script lang="ts">
 	import * as Card from '$lib/components/ui/card';
-	import { Button } from '$lib/components/ui/button';
-	import { Separator } from '$lib/components/ui/separator';
 	import GitHub from 'lucide-svelte/icons/github';
-
-	import { onMount } from 'svelte';
+	import { Button } from '$lib/components/ui/button';
 	import { Progress } from '$lib/components/ui/progress';
+	import { Separator } from '$lib/components/ui/separator';
+	import { onMount } from 'svelte';
 
-	let value = 100;
+	import type { Project } from './types';
+
+	type Props = {
+		project: Project;
+	};
+
+	let { project }: Props = $props();
+
+	let value = $state(100);
 	onMount(() => {
-		const timer = setTimeout(() => {
-			value = 0;
-			setTimeout(() => {
-				value = project.completion;
-			}, 500);
-		}, 500);
+		const timer = setTimeout(
+			() => {
+				value = 0;
+				setTimeout(
+					() => {
+						value = project.completion;
+					},
+					500 + Math.random() * 500
+				);
+			},
+			500 + Math.random() * 500
+		);
 		return () => clearTimeout(timer);
 	});
 </script>

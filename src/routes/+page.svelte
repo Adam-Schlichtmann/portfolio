@@ -1,13 +1,12 @@
-<script>
-	import { WholeWord } from 'lucide-svelte';
+<script lang="ts">
 	import FloatingWord from './FloatingWord.svelte';
+	import type { PageData } from './$types';
 
-	/** @type {import('./$types').PageData} */
-	export let data;
+	export let data: PageData;
 </script>
 
 <div>
-	<h1 class="my-auto text-4xl font-extrabold tracking-tight lg:text-5xl">{data.data.name}</h1>
+	<h1 class="text-center text-4xl font-extrabold tracking-tight lg:text-5xl">{data.data.name}</h1>
 
 	{#each data.data.adjectives as word, index}
 		<FloatingWord {word} {index} />

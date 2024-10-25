@@ -1,13 +1,16 @@
-<script>
-	/** @type {import('./types').Skill} */
-	export let skill;
-	/** @type {number} */
-	export let index;
+<script lang="ts">
 	import Star from 'lucide-svelte/icons/star';
 	import { onMount } from 'svelte';
-
 	import { slide } from 'svelte/transition';
-	let visible = false;
+
+	import type { Skill } from './types';
+
+	type Props = {
+		skill: Skill;
+		index: number;
+	};
+	let { skill, index }: Props = $props();
+	let visible = $state(false);
 	onMount(() => {
 		visible = true;
 		return () => (visible = false);
